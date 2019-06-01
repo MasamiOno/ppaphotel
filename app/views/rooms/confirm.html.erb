@@ -1,0 +1,58 @@
+<div class="page-header">
+<h2><%= @room.roomnumber %>号室</h2>
+<h4><%= @room.petname %>ちゃんの部屋</h4>
+<div class="thumbnail">
+<%= image_tag @room.roomface.to_s %>
+<%= image_tag @room.roomface.to_s %>
+<%= image_tag @room.roomface.to_s %>
+</div>
+</br>
+<h4><%= @user.name %>さんちの
+<%= @room.petname %>ちゃんの部屋になりました！</h4>
+内装は以下の通りです
+</br></br>
+＊<%= @room.petname %>ちゃん紹介コメント＊
+<div class="card">
+<div class="card-body">
+<%= @room.rentcomment %>
+</div>
+</div>
+</br>
+BEST写真 現時点第1位：<%=@room.frm01comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame01.to_s %>
+</div>
+</br>
+第2位：<%=@room.frm02comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame02.to_s %>
+</div>
+</br>
+第3位：<%=@room.frm03comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame03.to_s %>
+</div>
+</br>
+第4位：<%=@room.frm04comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame04.to_s %>
+</div>
+</br>
+第5位：<%=@room.frm05comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame05.to_s %>
+</div>
+</br>
+今後のBEST5入り候補
+<div class="thumbnail">
+<%= image_tag @room.frame06.to_s %>
+<%= image_tag @room.frame07.to_s %>
+<%= image_tag @room.frame08.to_s %>
+</div>
+</br>
+<div class="thumbnail">
+<%= image_tag @room.frame09.to_s %>
+<%= image_tag @room.frame10.to_s %>
+</div>
+</br></br>
+<%= link_to '部屋から出る', floors_show_path(@floor), class: 'btn btn-secondary btn-lg '  %>

@@ -1,0 +1,47 @@
+<h3>アカウント情報更新</h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control col-md-5 col-sm" ,placeholder: "Enter email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+<div class="form-group">
+   <%= f.label :'名前' %><br />
+   <%= f.text_field :name, class: "form-control col-md-5 col-sm" ,placeholder: "Username" %>
+</div>
+
+  <div class="form-group">
+    <%= f.label :'パスワード' %>（パスワード変更をしない場合、この欄は入力不要です）<br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "パスワード" %>
+    <% if @minimum_password_length %>
+      <%= @minimum_password_length %>文字以上の英数字
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'パスワードの確認（パスワード変更の場合、この欄にも入力してください）' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "パスワード再入力" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'現在のパスワード' %> （変更の意思確認のため現在のパスワードを入力してください　※この欄は入力必須です）<br />
+<%= f.password_field :current_password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "現在のパスワード" %>
+  </div>
+
+  <div class="actions pb-5">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+
+<h3>アカウント削除</h3>
+
+<p>アカウント削除希望の方はここから申請してください<%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "アカウント削除します　よろしいですか？" }, method: :delete, class: "btn btn-danger mb-5" %></p>
+
+<%= link_to "戻る", :back %>

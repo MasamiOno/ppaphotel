@@ -1,0 +1,49 @@
+<div class="row">
+<div class="col-md-6 col-12 d-none d-md-block">
+ 検索結果
+</p>
+<div class="list-group" >
+<% @rooms.each do |room| %>
+<%= link_to(rooms_show_path(room) ,class: 'list-group-item') do %>
+<% if room.petname != nil %>
+<h6 class="list-group-item-heading">
+<%= room.roomnumber %>号室</p><%= room.ownername %>さんちの<%= room.petname %>ちゃん</h6>
+<% else %>
+<h6 class="list-group-item-heading">
+<%= room.roomnumber %>号室</p></h6>
+<% end %>
+<% end %>
+<% end %>
+</p>
+</div>
+
+<br>
+
+<div class="page-header">
+<h2>フロア案内</h2>
+</div>
+</p>
+<div class="list-group">
+<% @floors.each do |floor| %>
+<%= link_to(floors_show_path(floor), class: 'list-group-item') do %>
+<h5 class="list-group-item-heading">
+<%= floor.floorname %></h5></p>
+</p>
+<p class="list-group-item-text">
+</p>
+<% end %>
+<% end %>
+</p>
+</div>
+
+<%= paginate @floors %>
+
+</br>
+</br>
+<%= search_form_for(@q, url: welcome_roomsearch_path, class: 'well') do |f| %>
+<div class="form-group">
+<%= f.label :petname, 'ペット名で部屋を検索' %>
+<%= f.text_field :petname_cont, class: 'form-control', required:true  %>
+</div>
+<%= f.submit '検索', class: 'btn btn-info' %>
+<% end %>

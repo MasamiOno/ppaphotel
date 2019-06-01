@@ -1,0 +1,116 @@
+<h2><%= @room.roomnumber %>号室</h2>
+
+<%= @room.petname %>ちゃんの部屋
+</br>
+</br>
+<h3>写真をクリアしました</h3>
+</br>
+
+<%= form_with(model: @room, local: true, class: 'form-horizontal', url: rooms_update_path(@room) ) do |form| %>
+<div class="form-group">
+入居するペットのお名前：
+<%= form.text_field :petname %>
+</br>
+入居ペット紹介コメント：
+<div class="form-group">
+<%= form.text_field :rentcomment, class: 'form-control' %>
+</br>
+BEST写真 現時点第1位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame01.to_s %>
+<%= form.file_field :frame01 %>
+<%= form.hidden_field :frame01_cache %>
+</div>
+第1位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm01comment, class: 'form-control' %>
+</div>
+第2位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame02.to_s %>
+<%= form.file_field :frame02 %>
+<%= form.hidden_field :frame02_cache %>
+</div>
+第2位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm02comment, class: 'form-control' %>
+</div>
+第3位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame03.to_s %>
+<%= form.file_field :frame03 %>
+<%= form.hidden_field :frame03_cache %>
+</div>
+第3位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm03comment, class: 'form-control' %>
+</div>
+第4位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame04.to_s %>
+<%= form.file_field :frame04 %>
+<%= form.hidden_field :frame04_cache %>
+</div>
+第4位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm04comment, class: 'form-control' %>
+</div>
+第5位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame05.to_s %>
+<%= form.file_field :frame05 %>
+<%= form.hidden_field :frame05_cache %>
+</div>
+第5位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm05comment, class: 'form-control' %>
+</div>
+今後のBEST5入り候補（5枚まで登録可能です）
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame06.to_s %>
+<%= form.file_field :frame06 %>
+<%= form.hidden_field :frame06_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame07.to_s %>
+<%= form.file_field :frame07 %>
+<%= form.hidden_field :frame07_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame08.to_s %>
+<%= form.file_field :frame08 %>
+<%= form.hidden_field :frame08_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame09.to_s %>
+<%= form.file_field :frame09 %>
+<%= form.hidden_field :frame09_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame10.to_s %>
+<%= form.file_field :frame10 %>
+<%= form.hidden_field :frame10_cache %>
+</div>
+</br>
+<%= form.hidden_field :owner_id, class: 'form-control'  ,value: current_user.id %>
+<%= form.submit '更新',class: 'btn btn-info' %>
+<% end %>
+</br>
+</br>
+<%= link_to '部屋から出る', floors_show_path(@floor), class: 'btn btn-secondary btn-lg '  %>
+
+

@@ -1,0 +1,9 @@
+<h3><%= @room.roomnumber %>号室</h3>
+</br>
+<h5>
+この部屋の荷物は全部運び出されました。
+</br>
+オーナーさんはあと<%= @user.rmcounter %>部屋入居することができます。</br>
+</br>
+またお気軽に入居ご登録ください。<h5></br>
+<%= link_to '部屋から出る', floors_show_path(@floor), class: 'btn btn-secondary btn-lg' %>

@@ -1,0 +1,19 @@
+<nav class="navbar bg-primary navbar-dark">
+<a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
+<% if user_signed_in? %>
+<ul class="nav justify-content-end">
+<li class="nav-item text-white d-flex align-items-center">
+あと<%= current_user.rmcounter %>部屋入居できます
+<li class="nav-item" >
+<%= link_to " ログアウト ", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+</li>
+</ul>
+<% else %>
+<ul class="nav justify-content-end">
+<li class="nav-item" >
+<%= link_to "このサイトの使い方", welcome_instruction_path, class: "nav-link text-white" %>
+<li class="nav-item" >
+<%= link_to " ログイン ", new_user_session_path, class: "nav-link text-white" %>
+</li>
+<% end %>
+</nav>

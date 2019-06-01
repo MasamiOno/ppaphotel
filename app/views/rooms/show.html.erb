@@ -1,0 +1,269 @@
+<div class="row">
+<div class="col-md-12 col-12 d-none d-md-block">
+<h2><%= @room.roomnumber %>号室</h2>
+
+<% if @room.petname == nil %>
+</p>
+空室です
+</br>
+<% else %>
+<h4><%= @room.ownername %>さんちの<%= @room.petname %>ちゃんの部屋</h4>
+<div class="thumbnail">
+<%= image_tag @room.roomface.to_s %>
+<%= image_tag @room.roomface.to_s %>
+<%= image_tag @room.roomface.to_s %>
+</div>
+</br>
+＊<%= @room.petname %>ちゃん紹介コメント＊
+<div class="card">
+<div class="card-body">
+<%= @room.rentcomment %>
+</div>
+</div>
+</br>
+BEST写真 現時点第1位：<%=@room.frm01comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame01.to_s %>
+</div>
+</br>
+第2位：<%=@room.frm02comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame02.to_s %>
+</div>
+</br>
+第3位：<%=@room.frm03comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame03.to_s %>
+</div>
+</br>
+第4位：<%=@room.frm04comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame04.to_s %>
+</div>
+</br>
+第5位：<%=@room.frm05comment %>↓
+<div class="thumbnail">
+<%= image_tag @room.frame05.to_s %>
+</div>
+</br>
+今後のBEST5入り候補
+<div class="thumbnail">
+<%= image_tag @room.frame06.to_s %>
+<%= image_tag @room.frame07.to_s %>
+<%= image_tag @room.frame08.to_s %>
+</div>
+</br>
+<div class="thumbnail">
+<%= image_tag @room.frame09.to_s %>
+<%= image_tag @room.frame10.to_s %>
+</div>
+<% end %>
+
+</br>
+<% if user_signed_in? %>
+<% if @room.petname == nil %>
+<% if current_user.rmcounter > 0 %>
+<div class="page-header">
+<h4>入居申請フォーム</h4>
+</div>
+
+<%= form_with(model: @room, local: true, class: 'form-horizontal', url: rooms_confirm_path(@room) ) do |form| %>
+<div class="form-group">
+入居するペットのお名前
+<%= form.text_field :petname %>
+</br>（お名前の欄のみ入力必須です）</br></br>
+玄関に置く紹介写真（登録可能な画像ファイルは jpg jpeg gif png です）
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.roomface.to_s %>
+<%= form.file_field :roomface %>
+<%= form.hidden_field :roomface_cache %>
+</div></br>
+入居ペット紹介コメント
+<div class="form-group">
+<%= form.text_field :rentcomment, class: 'form-control' %>
+</br>
+BEST写真 現時点第1位を登録（以下の各項目共に jpg jpeg gif png のみ対応です）
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame01.to_s %>
+<%= form.file_field :frame01 %>
+<%= form.hidden_field :frame01_cache %>
+</div>
+第1位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm01comment, class: 'form-control' %>
+</div>
+第2位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame02.to_s %>
+<%= form.file_field :frame02 %>
+<%= form.hidden_field :frame02_cache %>
+</div>
+第2位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm02comment, class: 'form-control' %>
+</div>
+第3位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame03.to_s %>
+<%= form.file_field :frame03 %>
+<%= form.hidden_field :frame03_cache %>
+</div>
+第3位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm03comment, class: 'form-control' %>
+</div>
+第4位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame04.to_s %>
+<%= form.file_field :frame04 %>
+<%= form.hidden_field :frame04_cache %>
+</div>
+第4位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm04comment, class: 'form-control' %>
+</div>
+第5位を登録
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame05.to_s %>
+<%= form.file_field :frame05 %>
+<%= form.hidden_field :frame05_cache %>
+</div>
+第5位写真コメント：
+<div class="form-group">
+<%= form.text_field :frm05comment, class: 'form-control' %>
+</div>
+今後のBEST5入り候補（5枚まで登録可能です）
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame06.to_s %>
+<%= form.file_field :frame06 %>
+<%= form.hidden_field :frame06_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame07.to_s %>
+<%= form.file_field :frame07 %>
+<%= form.hidden_field :frame07_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame08.to_s %>
+<%= form.file_field :frame08 %>
+<%= form.hidden_field :frame08_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame09.to_s %>
+<%= form.file_field :frame09 %>
+<%= form.hidden_field :frame09_cache %>
+</div>
+</br>
+<div class="form-group">
+<div class=”thumbnail”>
+<%= image_tag @room.frame10.to_s %>
+<%= form.file_field :frame10 %>
+<%= form.hidden_field :frame10_cache %>
+</div>
+</br>
+<%= form.hidden_field :owner_id, class: 'form-control'  ,value: current_user.id %>
+<%= form.hidden_field :ownername, class: 'form-control'  ,value: current_user.name %>
+<%= form.submit '入居',class: 'btn btn-info' %>
+</br>
+</br>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+
+<% if user_signed_in? %>
+<% if @room.owner_id == @user.id %>
+<% if @room.petname != nil %>
+<%= link_to '部屋の一部模様替えをする', rooms_edit_path(@room), class: 'btn btn-info btn-lg '  %>
+</br>
+</br>
+<%= link_to 'この部屋から引っ越す', rooms_move_path(@room), class: 'btn btn-primary btn-lg '  %>
+</br>
+</br>
+<% end %>
+<% end %>
+<% end %>
+</br>
+<%= link_to '部屋から出る', floors_show_path(@floor), class: 'btn btn-secondary btn-lg' %>
+</br>
+</br>
+<% if user_signed_in? %>
+<% if @room.owner_id != @user.id %>
+<% if @room.petname != nil %>
+<%= form_with(model: @room.created_notes, local:true, url: rooms_commented_path(@room)) do |c| %>
+<div class="form-group">
+＊ビジターノートに記入</br>
+<%= c.text_field :comment, class: 'form-control' %>
+<%= c.hidden_field :petname, class: 'form-control',value: "#{@room.petname}" %>
+<%= c.submit '記入',class: 'btn btn-info' %>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+</br></br>
+
+<% if @room.owner_id != nil %>
+<div class="page-header">
+＜ビジターコメント＞
+</div>
+<div class="list-group">
+<% @notes.each do |note| %>
+<% if note.room_id == @room.id %>
+<% if note.petname ==  @room.petname %>
+<div class="card">
+<div class="card-body">
+<%= note.user.name %>さんコメント ： <%= note.comment %> （<%=l note.created_at %> 記入）
+</div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+
+</br>
+</br>
+<% if user_signed_in? %>
+<% if @room.owner_id != @user.id %>
+<% if @room.petname != nil %>
+<% if (current_user.created_alerts).count < 6 %>
+<%= form_with(model: @room.created_alerts, local:true, url: rooms_alerted_path(@room)) do |m| %>
+<div class="form-group">
+＊この部屋に不適切と思われる画像が万一あった場合は下のボタンを押して報告ください（１ログインユーザーにつき報告は５回までです）</br>
+<%= m.hidden_field :petname, class: 'form-control',value: "#{@room.petname}" %>
+<%= m.submit '気になりました',class: 'btn btn-primary' %>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+</br></br>
+
+<% if @room.owner_id != nil %>
+<div class="page-header">
+</div>
+<div class="list-group">
+<% @alerts.each do |alert| %>
+<% if alert.room_id == @room.id %>
+<% if alert.petname ==  @room.petname %>
+<div class="card">
+<div class="card-body">
+<%= alert.user.name %>さん ：　画像アラート報告
+</div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+<% end %>

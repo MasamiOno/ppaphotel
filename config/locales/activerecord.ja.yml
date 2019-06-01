@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        room:
+          attributes:
+            rentname:
+              blank: "：質問（上段）が入力されていません"
+              taken: "が既に登録されており登録できません。お名前の前に形容詞（「かわいい」など）等を付けて再入力お願いします"
+        user:
+          attributes:
+            email:
+              taken: "が既に登録済の扱いになっています。ご確認ください"
+              blank: "を入力してください"
+            name:
+              taken: "が既に登録済です。別の名前をご登録ください"
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+              too_short: "は6文字以上の英数字を入力してください"
+            password_confirmation:
+              confirmation: "を再度確認して入力してください"
+              blank: "を入力してください"

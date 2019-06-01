@@ -1,0 +1,28 @@
+<div class="row">
+<div class="col-md-6 col-12 d-none d-md-block">
+<div class="list-group">
+<div class="page-header">
+<h2><%= @floor.floorname %></h2>
+
+</div>
+
+<div class="list-group">
+<% @rooms.each do |room| %>
+<% if (room.roomnumber/1000).round(0) == @floor.id %>
+<%= link_to(rooms_show_path(room), class: 'list-group-item') do %>
+<h5 class="list-group-item-heading">
+<%= room.roomnumber %>号室</h5></p>
+<% if room.petname == nil %>
+空室です
+<% else %>
+<%= room.ownername %>さんちの<%= room.petname %>ちゃんの部屋　　　アラート数：<%= (room.created_alerts).count  %>
+<% end %>
+<p class="list-group-item-text">
+</p>
+<% end %>
+<% end %>
+<% end %>
+</p>
+</div>
+</br>
+<%= link_to '玄関ロビーへ', welcome_index_path, class: 'btn btn-secondary'  %>

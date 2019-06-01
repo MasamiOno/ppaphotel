@@ -1,0 +1,13 @@
+<h3><%= @room.roomnumber %>号室</h3>
+<h5>
+<%= @room.petname %>ちゃん</br>
+</br>
+この部屋から引っ越します。
+</br>
+この部屋に登録いただいた写真とコメントはサイト上から削除されます。</br>
+予めご了承ください。
+</br>
+</br>
+上記ご確認のうえ、下のボタンを押してください。</h5>
+</br>
+<%= link_to '引越', rooms_moved_path(@room), class: 'btn btn-success btn-lg'  %>
