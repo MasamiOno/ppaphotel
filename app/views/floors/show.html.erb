@@ -15,7 +15,7 @@
 <% if room.petname == nil %>
 空室です
 <% else %>
-<%= room.ownername %>さんちの<%= room.petname %>ちゃんの部屋　　　アラート数：<%= (room.created_alerts).count  %>
+<%= room.ownername %>さんちの<%= room.petname %>ちゃんの部屋　　　報告：<%= (room.created_alerts).count  %>
 <% end %>
 <p class="list-group-item-text">
 </p>

@@ -112,6 +112,7 @@ class RoomsController < ApplicationController
       @user = current_user
       @room = Room.find(params[:format])
       @floor = Floor.find((@room.roomnumber/1000).round(0))
+      @alerts = Alert.order('created_at desc')
       note = current_user.created_notes.build do |n|
           n.room_id = params[:format]
           n.user_id = current_user.id

@@ -241,9 +241,9 @@ BEST写真 現時点第1位を登録（以下の各項目共に jpg jpeg gif png
 <% if (current_user.created_alerts).count < 6 %>
 <%= form_with(model: @room.created_alerts, local:true, url: rooms_alerted_path(@room)) do |m| %>
 <div class="form-group">
-＊この部屋に不適切と思われる画像が万一あった場合は下のボタンを押して報告ください（１ログインユーザーにつき報告は５回までです）</br>
+＊の部屋にペット写真以外の写真が掲載されている場合は下のボタンを押して報告ください（報告は１ユーザー５回上限です）</br>
 <%= m.hidden_field :petname, class: 'form-control',value: "#{@room.petname}" %>
-<%= m.submit '気になりました',class: 'btn btn-primary' %>
+<%= m.submit '報告',class: 'btn btn-primary' %>
 <% end %>
 <% end %>
 <% end %>
