@@ -118,4 +118,6 @@ Rails.application.configure do
     
     config.secret_token = ENV["SECRET_TOKEN"]
     
+    
+    
 end

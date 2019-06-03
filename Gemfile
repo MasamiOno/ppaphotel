@@ -71,6 +71,7 @@ group :development, :production, :test do
   gem 'capistrano3-puma'
   gem 'aws-sdk','~> 2.3'
   gem 'fog-aws'
+  gem 'asset_sync'
 end
 
 group :development do
