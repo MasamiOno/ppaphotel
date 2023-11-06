@@ -1,0 +1,8 @@
+
+<%= search_form_for(@q, url: welcome_roomsearch_path, class: 'well') do |f| %>
+<div class="form-group">
+<%= f.label :petname, '部屋検索' %>
+<%= f.text_field :petname_cont, class: 'form-control' %>
+</div>
+<%= f.submit '検索', class: 'btn btn-info' %>
+<% end %>

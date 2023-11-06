@@ -13,7 +13,11 @@
 玄関に置くペット紹介写真
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.roomface.to_s %>
+<% if @room.roomface.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.roomface.to_s %>
+>
+<% end %>
 <%= form.file_field :roomface %>
 <%= form.hidden_field :roomface_cache %>
 </div></br>
@@ -24,7 +28,11 @@
 BEST写真 現時点第1位を登録
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame01.to_s %>
+<% if @room.frame01.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame01.to_s %>
+>
+<% end %>
 <%= form.file_field :frame01 %>
 <%= form.hidden_field :frame01_cache %>
 </div>
@@ -35,7 +43,11 @@ BEST写真 現時点第1位を登録
 第2位を登録
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame02.to_s %>
+<% if @room.frame02.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame02.to_s %>
+>
+<% end %>
 <%= form.file_field :frame02 %>
 <%= form.hidden_field :frame02_cache %>
 </div>
@@ -46,7 +58,11 @@ BEST写真 現時点第1位を登録
 第3位を登録
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame03.to_s %>
+<% if @room.frame03.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame03.to_s %>
+>
+<% end %>
 <%= form.file_field :frame03 %>
 <%= form.hidden_field :frame03_cache %>
 </div>
@@ -57,7 +73,11 @@ BEST写真 現時点第1位を登録
 第4位を登録
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame04.to_s %>
+<% if @room.frame04.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame04.to_s %>
+>
+<% end %>
 <%= form.file_field :frame04 %>
 <%= form.hidden_field :frame04_cache %>
 </div>
@@ -68,7 +88,11 @@ BEST写真 現時点第1位を登録
 第5位を登録
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame05.to_s %>
+<% if @room.frame05.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame05.to_s %>
+>
+<% end %>
 <%= form.file_field :frame05 %>
 <%= form.hidden_field :frame05_cache %>
 </div>
@@ -79,35 +103,55 @@ BEST写真 現時点第1位を登録
 今後のBEST5入り候補（5枚まで登録可能です）
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame06.to_s %>
+<% if @room.frame06.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame06.to_s %>
+>
+<% end %>
 <%= form.file_field :frame06 %>
 <%= form.hidden_field :frame06_cache %>
 </div>
 </br>
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame07.to_s %>
+<% if @room.frame07.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame07.to_s %>
+>
+<% end %>
 <%= form.file_field :frame07 %>
 <%= form.hidden_field :frame07_cache %>
 </div>
 </br>
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame08.to_s %>
+<% if @room.frame08.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame08.to_s %>
+>
+<% end %>
 <%= form.file_field :frame08 %>
 <%= form.hidden_field :frame08_cache %>
 </div>
 </br>
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame09.to_s %>
+<% if @room.frame09.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame09.to_s %>
+>
+<% end %>
 <%= form.file_field :frame09 %>
 <%= form.hidden_field :frame09_cache %>
 </div>
 </br>
 <div class="form-group">
 <div class=”thumbnail”>
-<%= image_tag @room.frame10.to_s %>
+<% if @room.frame10.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame10.to_s %>
+>
+<% end %>
 <%= form.file_field :frame10 %>
 <%= form.hidden_field :frame10_cache %>
 </div>

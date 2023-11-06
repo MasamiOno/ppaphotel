@@ -1,9 +1,17 @@
 <h2><%= @room.roomnumber %>号室</h2>
 <h4><%= @room.petname %>ちゃんの部屋<h4>
 <div class="thumbnail">
-<%= image_tag @room.roomface.to_s %>
-<%= image_tag @room.roomface.to_s %>
-<%= image_tag @room.roomface.to_s %>
+<% if @room.roomface.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.roomface.to_s %>
+>
+<img  src=
+<%= 'https://' + @room.roomface.to_s %>
+>
+<img  src=
+<%= 'https://' + @room.roomface.to_s %>
+>
+<% end %>
 </div>
 </br>
 <h2>模様替え完了！</h2>
@@ -18,41 +26,80 @@
 </br>
 BEST写真 現時点第1位：<%=@room.frm01comment %>↓
 <div class="thumbnail">
-<%= image_tag @room.frame01.to_s %>
+<% if @room.frame01.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame01.to_s %>
+>
+<% end %>
 </div>
 </br>
 第2位：<%=@room.frm02comment %>↓
 <div class="thumbnail">
-<%= image_tag @room.frame02.to_s %>
+<% if @room.frame02.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame02.to_s %>
+>
+<% end %>
 </div>
 </br>
 第3位：<%=@room.frm03comment %>↓
 <div class="thumbnail">
-<%= image_tag @room.frame03.to_s %>
+<% if @room.frame03.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame03.to_s %>
+>
+<% end %>
 </div>
 </br>
 第4位：<%=@room.frm04comment %>↓
 <div class="thumbnail">
-<%= image_tag @room.frame04.to_s %>
+<% if @room.frame04.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame04.to_s %>
+>
+<% end %>
 </div>
 </br>
 第5位：<%=@room.frm05comment %>↓
 <div class="thumbnail">
-<%= image_tag @room.frame05.to_s %>
+<% if @room.frame05.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame05.to_s %>
+>
+<% end %>
 </div>
 </br>
 今後のBEST5入り候補
 <div class="thumbnail">
-<%= image_tag @room.frame06.to_s %>
-<%= image_tag @room.frame07.to_s %>
-<%= image_tag @room.frame08.to_s %>
+<% if @room.frame06.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame06.to_s %>
+>
+<% end %>
+<% if @room.frame07.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame07.to_s %>
+>
+<% end %>
+<% if @room.frame08.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame08.to_s %>
+>
+<% end %>
 </div>
 </br>
 <div class="thumbnail">
-<%= image_tag @room.frame09.to_s %>
-<%= image_tag @room.frame10.to_s %>
+<% if @room.frame09.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame09.to_s %>
+>
+<% end %>
+<% if @room.frame10.to_s != "" %>
+<img  src=
+<%= 'https://' + @room.frame10.to_s %>
+>
+<% end %>
 </div>
 </br>
 <%= link_to '部屋から出る', floors_show_path(@floor), class: 'btn btn-secondary btn-lg '  %>
-
 

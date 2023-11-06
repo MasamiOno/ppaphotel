@@ -118,6 +118,8 @@ Rails.application.configure do
     
     config.secret_token = ENV["SECRET_TOKEN"]
     
-    
+    #config.action_controller.asset_host   = "//s3-ap-northeast-1.amazonaws.com/ppaphotel5"
+    #config.assets.prefix                  = '/assets'
+
     
 end

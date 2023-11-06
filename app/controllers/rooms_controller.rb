@@ -67,8 +67,10 @@ class RoomsController < ApplicationController
       @room.frm03comment = nil
       @room.frm04comment = nil
       @room.frm05comment = nil
+      @room.created_notes.delete
       room = @room
       room.save
+      @room.created_alerts.delete_all
       current_user.rmcounter = current_user.rmcounter + 1
       user = current_user
       user.save
