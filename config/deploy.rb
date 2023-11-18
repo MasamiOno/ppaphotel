@@ -26,7 +26,7 @@ set :deploy_to, '/opt/ppaphotel'
 
 #set :bundle_path, '/home/linuxbrew/.linuxbrew/bin//bundle'
 #set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-#set :rbenv_ruby, '2.6.0'
+#set :rbenv_ruby, '2.4.1'
 set :pty,             false
 set :use_sudo,        true
 set :stage,           :production
