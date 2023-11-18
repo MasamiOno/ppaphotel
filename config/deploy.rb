@@ -2,7 +2,7 @@
 #set :keep_releases, 3
 
 #set :rbenv_type, :user # or :system, depends on your rbenv setup
-#set :rbenv_ruby, '2.4.1'
+#set :rbenv_ruby, '2.6.0'
 
 #set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 #set :rbenv_roles, :all # default value
@@ -16,7 +16,7 @@ set :repo_url, "https://github.com/MasamiOno/ppaphotel" #自分のリポジト�
 
 # base
 set :application, 'ppaphotel' #自分のapp_nameに変更
-set :branch, 'master'
+set :branch, 'main'
 set :user, 'ec2-user'
 set :deploy_to, '/opt/ppaphotel'
 
@@ -26,7 +26,7 @@ set :deploy_to, '/opt/ppaphotel'
 
 #set :bundle_path, '/home/linuxbrew/.linuxbrew/bin//bundle'
 #set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-#set :rbenv_ruby, '2.4.1'
+#set :rbenv_ruby, '2.6.0'
 set :pty,             false
 set :use_sudo,        true
 set :stage,           :production
