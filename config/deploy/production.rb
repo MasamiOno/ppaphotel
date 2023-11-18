@@ -1,5 +1,5 @@
 
-#set :app_eip, '3.112.148.47'
+#set :app_eip, '54.250.124.86'
 
 set :ssh_options, {
     keys: [File.expand_path('~/.ssh/EbitenpuraAppKey.pem')],
@@ -7,9 +7,9 @@ set :ssh_options, {
     auth_methods: %w(publickey)
 }
 
-role :app, 'ec2-user@13.230.220.82'
-role :web, 'ec2-user@13.230.220.82'
-role :db,  'ec2-user@13.230.220.82'
+role :app, 'ec2-user@54.250.124.86'
+role :web, 'ec2-user@54.250.124.86'
+role :db,  'ec2-user@54.250.124.86'
 
 
 #set :default_env, {
@@ -17,7 +17,7 @@ role :db,  'ec2-user@13.230.220.82'
 #}
 
 
-#server '13.230.220.82', user: 'admin', roles: %w{web app db}
+#server '54.250.124.86', user: 'admin', roles: %w{web app db}
 
 #set :ssh_options, {
 #keys: [File.expand_path('~/.ssh/new_rsa')],
